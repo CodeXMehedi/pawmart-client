@@ -35,7 +35,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
-          <Link className='btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Login</Link>
+          <Link to='/login' className='btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Login</Link>
           <Link className='btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Register</Link>
         </div>
       </div>
