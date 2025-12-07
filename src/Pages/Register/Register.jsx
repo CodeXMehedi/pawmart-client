@@ -132,7 +132,7 @@ const Register = () => {
                 !user &&
                 <button className='btn btn-neutral mt-4 text-sm' onClick={handleGoogleSignIn}>Register With Google</button>
               }
-              <p className='font-semibold text-center pt-5 text-lg'>Allready have an account? <NavLink to='/auth/login' className="text-red-500">Login</NavLink></p>
+              <p className='font-semibold text-center pt-5 text-lg'>Allready have an account? <NavLink to='/login' className="text-red-500">Login</NavLink></p>
             </fieldset>
           </form>
         </div>
