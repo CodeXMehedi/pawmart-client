@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../contexts/AuthContext';
+import toast from 'react-hot-toast';
+import userDefaultLogo from '../assets/logouser-D4eLv0KQ.jpg'
+
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+
+  const handleLogOut = () => {
+    // console.log("Trying to LogOut");
+    logOut()
+      .then(() => {
+        toast.success("Logged Out successfully");
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const links = <>
     <div className='flex gap-3 text-lg'>
       <NavLink to='/'>Home</NavLink>
@@ -34,10 +51,18 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+
         <div className="navbar-end gap-2">
-          <Link to='/login' className='btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Login</Link>
-          <Link className='btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Register</Link>
-        </div>
+          <img className='w-10 h-10 rounded-4xl'
+            src={`${user ? user.photoURL : userDefaultLogo}`}
+            title={user?.displayName || 'User name'}
+            alt="" />
+          {user ? <button onClick={handleLogOut} className="md:btn lg:btn p-1  rounded-sm shadow-lg bg-[#FBE8D3] text-yellow-800 text-lg">Log Out</button> : <div className='flex gap-2'>
+            <Link to='/login' className='lg:btn md:btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Login</Link>
+            <Link to='/register' className='lg:btn md:btn  bg-[#FBE8D3] text-yellow-800 text-lg'>Register</Link>
+          </div>}
+     </div>
+        
       </div>
     </div>
   );
