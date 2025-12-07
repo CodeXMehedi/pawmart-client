@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import PetsSupplies from "../Pages/PetsSupplies/PetsSupplies";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddListing from "../Pages/AddListing/AddListing";
 
 
 export const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
         element:<PetsSupplies></PetsSupplies>
       },
       {
+        path: '/addListing',
+        element:<AddListing></AddListing>
+      },
+      {
         path: '/login',
         element:<Login></Login>
       },
@@ -28,6 +33,7 @@ export const router = createBrowserRouter([
         element:<Register></Register>
       }
     ]
-  }
+  },
+  
 
 ])
