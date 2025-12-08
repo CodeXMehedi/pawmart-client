@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router';
 import Navbar from '../../components/Navbar';
 import axios from 'axios';
+import Footer from '../../components/Footer';
 
 const MyListings = () => {
   const [myServices, setMyServices] = useState([]);
@@ -25,9 +26,10 @@ const MyListings = () => {
       }).catch(err => console.log(err));
   }
   return (
-    <>
+    <div>
       <Navbar></Navbar>
-    <div className="overflow-x-auto mt-8  w-10/12 m-auto">
+      <div className='flex flex-2 lg:flex-row '>
+    <div className="overflow-x-auto mt-8 w-10/12 m-auto">
       <table className="table">
         {/* head */}
         <thead>
@@ -70,8 +72,10 @@ const MyListings = () => {
           ))}
         </tbody>
       </table>
+        </div>
       </div>
-    </>
+      <Footer></Footer>
+    </div>
   );
 };
 

@@ -17,7 +17,7 @@ const RecentListing = () => {
       <h1 className="text-4xl font-bold text-center text-[#A55E2A] my-6">
         Recent Listing
       </h1>
-    <div className='grid grid-cols-3 w-10/12 m-auto gap-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-10/12 m-auto gap-4'>
       {
         LatestServices.map(service => <LatestCard key={service._id} service={service}></LatestCard>)
         

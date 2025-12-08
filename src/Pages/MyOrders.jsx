@@ -5,6 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";  
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -121,7 +122,8 @@ const MyOrders = () => {
             )}
           </tbody>
         </table>
-      </div>
+        </div>
+        <Footer></Footer>
       <Toaster />
       </div>
       </>

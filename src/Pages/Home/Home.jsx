@@ -4,6 +4,7 @@ import CategoryCards from '../../components/CategoryCards';
 import RecentListing from '../../components/RecentListing';
 import WhyPawMarts from '../../components/WhyPawMarts';
 import PetHeros from '../../components/PetHeros';
+import Footer from '../../components/Footer';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <RecentListing></RecentListing>
       <WhyPawMarts></WhyPawMarts>
       <PetHeros></PetHeros>
+      <Footer></Footer>
     </div>
   );
 };

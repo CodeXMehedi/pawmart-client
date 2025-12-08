@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../../components/ServiceCard';
+import Footer from '../../components/Footer';
 
 const PetsSupplies = () => {
   const [services, setServices] = useState([]);
@@ -26,11 +27,12 @@ const PetsSupplies = () => {
           <option value='Care Products'>Care Products</option>
         </select>
       </div>
-    <div className='grid grid-cols-3 w-10/12 m-auto gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-10/12 m-auto gap-4'>
       {
         services.map(service=><ServiceCard key={service._id} service={service}> </ServiceCard>)
       }
       </div>
+      <Footer></Footer>
       </>
   );
 };

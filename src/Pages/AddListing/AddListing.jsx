@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
+import Footer from '../../components/Footer';
 
 const AddListing = () => {
   const { user } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const AddListing = () => {
   }
   
   return (
+    <>
     <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow-xl my-4">
       <h2 className="text-3xl font-bold text-center mb-6">Add New Listing</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,7 +112,9 @@ const AddListing = () => {
         </div>
         <button type='submit' className="btn bg-[#F28500] w-full mt-4">Add Listing</button>
       </form>
-    </div>
+      </div>
+      <Footer></Footer>
+      </>
   );
 };
 
