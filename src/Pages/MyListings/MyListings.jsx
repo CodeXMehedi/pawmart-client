@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import { Link } from 'react-router';
 
 const MyListings = () => {
   const [myServices, setMyServices] = useState([]);
@@ -47,12 +48,12 @@ const MyListings = () => {
 
               <td>{service?.description}</td>
 
-              <td>${service?.price}</td>
+              <td>BDT {service?.price}</td>
 
-              <th >
-                <button className="btn btn-outline btn-xs mr-2">Edit</button>
-                <button className="btn btn-outline btn-xs">Delete</button>
-              </th>
+              <td >
+                <Link to={`/updateListing/${service?._id }`}> <button className="btn btn-primary btn-xs mr-2">Edit</button></Link>
+                <button className="btn btn-error btn-xs">Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>

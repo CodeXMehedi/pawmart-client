@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import AddListing from "../Pages/AddListing/AddListing";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import MyListings from "../Pages/MyListings/MyListings";
+import UpdateListing from "../Pages/UpdateListing/UpdateListing";
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
   {
     path: '/myListings',
     element:<MyListings></MyListings>
+  },
+  {
+    path: '/updateListing/:id',
+    element:<UpdateListing></UpdateListing>
   }
   
 
