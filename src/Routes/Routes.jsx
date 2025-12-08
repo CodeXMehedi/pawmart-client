@@ -13,6 +13,7 @@ import Pets from "../components/Pets";
 import FoodData from "../components/FoodData";
 import CareProducts from "../components/CareProducts";
 import Accessories from "../components/Accessories";
+import MyOrders from "../Pages/MyOrders";
 
 
 export const router = createBrowserRouter([
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
   {
     path: '/category/accessories',
     element:<Accessories></Accessories>
+  },
+  {
+    path: '/myorders',
+    element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>
   }
 
 ])

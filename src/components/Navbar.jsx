@@ -23,8 +23,13 @@ const Navbar = () => {
     <div className='flex gap-3 text-lg'>
       <NavLink to='/'>Home</NavLink>
       <NavLink to='/pets&Supplies'>Pets & Supplies</NavLink>
-      <NavLink to='/addListing'>Add Listing</NavLink>
-      <NavLink to='/myListings'>My Listings</NavLink>
+      {
+        user && (<>
+          <NavLink to='/addListing'>Add Listing</NavLink>
+          <NavLink to='/myListings'>My Listings</NavLink>
+          <NavLink to='/myorders'>My orders</NavLink>
+        </>)
+      }
     </div>
   </>
 

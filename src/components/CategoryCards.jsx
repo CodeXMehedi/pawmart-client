@@ -5,7 +5,7 @@ const CategoryCards = () => {
   
     
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 w-10/12 m-auto my-4">
 
       <Link to='/category/Pets'className="bg-base-100 shadow-xl rounded-2xl p-6 flex flex-col items-center justify-center hover:shadow-2xl hover:scale-105 transition">
         <img className='w-25 h-25' src="https://i.ibb.co.com/gL4SDTnF/animal-2913348.png" alt="" />
