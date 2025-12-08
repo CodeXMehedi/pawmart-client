@@ -9,6 +9,10 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import MyListings from "../Pages/MyListings/MyListings";
 import UpdateListing from "../Pages/UpdateListing/UpdateListing";
 import PrivateRoute from "../components/PrivateRoute";
+import Pets from "../components/Pets";
+import FoodData from "../components/FoodData";
+import CareProducts from "../components/CareProducts";
+import Accessories from "../components/Accessories";
 
 
 export const router = createBrowserRouter([
@@ -51,7 +55,22 @@ export const router = createBrowserRouter([
   {
     path: '/updateListing/:id',
     element: <PrivateRoute><UpdateListing></UpdateListing></PrivateRoute>
+  },
+  {
+    path: '/category/Pets',
+    element:<Pets></Pets>
+  },
+  {
+    path: '/category/food',
+    element:<FoodData></FoodData>
+  },
+  {
+    path: '/category/care-product',
+    element:<CareProducts></CareProducts>
+  },
+  {
+    path: '/category/accessories',
+    element:<Accessories></Accessories>
   }
-  
 
 ])

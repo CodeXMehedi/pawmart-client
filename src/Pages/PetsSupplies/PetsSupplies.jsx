@@ -3,19 +3,29 @@ import ServiceCard from '../../components/ServiceCard';
 
 const PetsSupplies = () => {
   const [services, setServices] = useState([]);
-
+  const [category, setCategory] = useState('');
   useEffect(() => {
-    fetch('http://localhost:3000/services')
+    fetch(`http://localhost:3000/services?category=${category}`)
       .then(res => res.json())
       .then(data => setServices(data))
     .catch(err=>console.log(err))
-  }, [])
+  }, [category])
   console.log(services)
   return (
     <>
-      <h1 className="text-4xl font-bold text-center text-[#A55E2A] my-8">
+      <h1 className="text-4xl font-bold text-center text-[#A55E2A] my-6">
         Explore Pets & Supplies <br /> For Your Furry Friends
-        </h1>
+      </h1>
+      <div className='w-10/12 m-auto my-6'>
+        <select onChange={(e) => setCategory(e.target.value)} defaultValue="Choose category" className="select border-2">
+          <option disabled={true}>Choose category</option>
+          <option value=''>All</option>
+          <option value='Pets'>Pets</option>
+          <option value='Food'>Food</option>
+          <option value='Accessories'>Accessories</option>
+          <option value='Care Products'>Care Products</option>
+        </select>
+      </div>
     <div className='grid grid-cols-3 w-10/12 m-auto gap-4'>
       {
         services.map(service=><ServiceCard key={service._id} service={service}> </ServiceCard>)
