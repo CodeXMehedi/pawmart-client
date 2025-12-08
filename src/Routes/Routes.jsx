@@ -14,11 +14,13 @@ import FoodData from "../components/FoodData";
 import CareProducts from "../components/CareProducts";
 import Accessories from "../components/Accessories";
 import MyOrders from "../Pages/MyOrders";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 export const router = createBrowserRouter([
   {
     path: '/',
+    errorElement: <ErrorPage></ErrorPage>,
     element: <Root></Root>,
     children: [
       {

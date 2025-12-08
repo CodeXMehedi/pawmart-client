@@ -12,7 +12,7 @@ const ServiceDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:3000/services/${id}`)
+    axios.get(`pawmart-server-beta.vercel.app/services/${id}`)
       .then(res => {
         setService(res.data);
         setLoading(false);
@@ -60,7 +60,7 @@ const ServiceDetails = () => {
 
 
    
-    axios.post("http://localhost:3000/orders", orderData)
+    axios.post("pawmart-server-beta.vercel.app/orders", orderData)
       .then(res => {
         console.log(res.data);
         
@@ -83,7 +83,7 @@ const ServiceDetails = () => {
         <h2 className="text-2xl font-bold">Service not found</h2>
         <button
           onClick={() => navigate(-1)}
-          className="bg-[#A55E2A] mt-2 text-white px-4 py-2 rounded hover:bg-[#923f17] transition-colors duration-300"
+          className="bg-[#0B6623] mt-2 text-white px-4 py-2 rounded hover:bg-[#0B6623] transition-colors duration-300"
         >
           Go Back
         </button>
@@ -94,7 +94,7 @@ const ServiceDetails = () => {
   return (
     <>
       <Navbar></Navbar>
-    <div className="flex items-center gap-6 w-9/12 mx-auto mt-10  bg-white shadow-lg rounded-lg">
+    <div className="flex items-center gap-6 w-9/12 mx-auto mt-10  bg-white shadow-lg rounded-lg p-10">
        
         <img
           src={service.image}
@@ -116,7 +116,7 @@ const ServiceDetails = () => {
               Back
             </button>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            <button className="bg-[#A55E2A] mt-2 text-white px-4 py-2 rounded hover:bg-[#923f17] transition-colors duration-300" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button>
+            <button className="bg-[#0B6623] mt-2 text-white px-4 py-2 rounded hover:bg-[#0B6623] transition-colors duration-300" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button>
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box">
                 <form method="dialog">
@@ -124,7 +124,7 @@ const ServiceDetails = () => {
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
                 <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
-                  <h2 className="text-3xl font-bold text-center text-[#A55E2A] mb-6">
+                  <h2 className="text-3xl font-bold text-center text-[#0B6623] mb-6">
                      Place Your Order
                   </h2>
 
@@ -251,7 +251,7 @@ const ServiceDetails = () => {
                     <div className="flex justify-center">
                       <button
                         type="submit"
-                        className="bg-[#A55E2A] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#8b4d20] transition"
+                        className="bg-[#0B6623] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#0B6623] transition"
                       >
                         Submit Order
                       </button>

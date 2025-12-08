@@ -15,7 +15,7 @@ const MyOrders = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    axios.get(`http://localhost:3000/orders?email=${user?.email}`)
+    axios.get(`pawmart-server-beta.vercel.app/orders?email=${user?.email}`)
       .then((res) => {
         setOrders(res.data);
         setLoading(false);
@@ -78,12 +78,12 @@ const MyOrders = () => {
     <>
       <Navbar></Navbar>
     <div className="w-11/12 mx-auto mt-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">My Orders</h1>
+        <h1 className="text-[#0B6623] text-3xl font-bold mb-6 text-center">My Orders</h1>
 
       <div className="flex justify-end mb-4">
         <button
           onClick={downloadPDF}
-          className="bg-[#A55E2A] text-white px-6 py-2 rounded hover:bg-[#923f17] transition"
+            className="bg-[#0B6623] text-white px-6 py-2 rounded hover:bg-[#0B6623] transition"
         >Download Report </button>
       </div>
 
@@ -123,9 +123,10 @@ const MyOrders = () => {
           </tbody>
         </table>
         </div>
-        <Footer></Footer>
+        
       <Toaster />
       </div>
+      <Footer></Footer>
       </>
   );
 };

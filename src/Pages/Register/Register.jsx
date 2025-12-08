@@ -126,11 +126,11 @@ const Register = () => {
                 </button >
               </div>
               {error && <p className="text-xs text-error">{error}</p>}
-              <button type='submit' className="btn btn-neutral mt-4 text-lg">Register</button>
+              <button type='submit' className="btn bg-[#0B6623] btn-neutral mt-4 text-lg">Register</button>
               <p className='text-center text-lg'>Or</p>
               {
                 !user &&
-                <button className='btn btn-neutral mt-4 text-sm' onClick={handleGoogleSignIn}>Register With Google</button>
+                <button className='btn bg-[#0B6623] btn-neutral mt-4 text-sm' onClick={handleGoogleSignIn}>Register With Google</button>
               }
               <p className='font-semibold text-center pt-5 text-lg'>Allready have an account? <NavLink to='/login' className="text-red-500">Login</NavLink></p>
             </fieldset>

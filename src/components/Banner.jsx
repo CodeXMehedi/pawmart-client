@@ -22,7 +22,7 @@ const Banner = () => {
       <SwiperSlide>
         <div className='w-full h-[250px] md:h-[350px] lg:h-[500px] relative overflow-hidden'>
           <img src="https://i.ibb.co.com/hFNdhrsW/beautiful-young-woman-playing-with-her-little-dog-park-outdoors-lifestyle-portrait.jpg" className='object-cover w-full h-full' alt="" />
-          <p className='md:text-3xl lg:text-5xl font-bold lg:leading-20 text-[#8B5E3C] absolute top-4 left-10 md:top-10 md:left-16 lg:top-20 lg:left-20'>Find Your Furry Friend Today!</p>
+          <p className='md:text-3xl lg:text-5xl font-semibold lg:leading-20 text-white absolute top-4 left-10 md:top-10 md:left-16 lg:top-20 lg:left-20'>Find Your Furry Friend Today!</p>
         </div>
       </SwiperSlide>
 

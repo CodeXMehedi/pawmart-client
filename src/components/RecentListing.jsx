@@ -6,7 +6,7 @@ const RecentListing = () => {
   const [services, setServices] = useState([]);
    
     useEffect(() => {
-      fetch('http://localhost:3000/services')
+      fetch('pawmart-server-beta.vercel.app/services')
         .then(res => res.json())
         .then(data => setServices(data))
       .catch(err=>console.log(err))
@@ -14,7 +14,7 @@ const RecentListing = () => {
   const LatestServices = services.slice(0, 6);
   return (
     <>
-      <h1 className="text-4xl font-bold text-center text-[#A55E2A] my-6">
+      <h1 className="text-4xl font-bold text-center text-[#0B6623] my-6">
         Recent Listing
       </h1>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-10/12 m-auto gap-4'>

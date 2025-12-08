@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Footer from './Footer';
 
 const ServiceCard = ({ service }) => {
-  console.log(service)
+  
   return (
   
     <div className="bg-white rounded-lg shadow-lg  p-4 hover:shadow-2xl ">
@@ -24,9 +25,10 @@ const ServiceCard = ({ service }) => {
       <div className="flex justify-center ">
         <Link
           to={`/service-details/${service?._id}`}
-          className="bg-[#A55E2A] mt-2 text-white px-4 py-2 rounded hover:bg-[#923f17] transition-colors duration-300"> View More
+          className="bg-[#06470C] mt-2 text-white px-4 py-2 rounded hover:bg-[#06470C] transition-colors duration-300"> View More
         </Link>
       </div>
+      
     </div>
   );
 };

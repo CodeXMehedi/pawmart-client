@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const CareProducts = () => {
     const [services, setServices] = useState([]);
     
     useEffect(() => {
-      fetch('http://localhost:3000/services?category=Care Products')
+      fetch('pawmart-server-beta.vercel.app/services?category=Care Products')
         .then(res => res.json())
         .then(data => setServices(data))
         .catch(err => console.log(err))
@@ -14,8 +15,8 @@ const CareProducts = () => {
   return (
     <>
       <Navbar></Navbar>
-      <h1 className='text-bold text-4xl text-center my-6'>Care Products Collection</h1>
-      <div className='grid grid-cols-3 w-10/12 m-auto gap-4'>
+      <h1 className='text-bold text-[#0B6623] text-4xl text-center my-6'>Care Products Collection</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-10/12 m-auto gap-4'>
         {
           services.map(service => <div className="bg-white rounded-lg shadow-lg  p-4 hover:shadow-2xl ">
             <img
@@ -36,12 +37,13 @@ const CareProducts = () => {
             <div className="flex justify-center ">
               <Link
                 to={`/service-details/${service?._id}`}
-                className="bg-[#A55E2A] mt-2 text-white px-4 py-2 rounded hover:bg-[#923f17] transition-colors duration-300"> View More
+                className="bg-[#0B6623] mt-2 text-white px-4 py-2 rounded hover:bg-[#0B6623] transition-colors duration-300"> View More
               </Link>
             </div>
           </div>)
         }
       </div>
+      <Footer></Footer>
     </>
   );
 };

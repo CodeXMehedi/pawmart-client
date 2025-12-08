@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
@@ -6,9 +6,10 @@ import userDefaultLogo from '../assets/logouser-D4eLv0KQ.jpg'
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleLogOut = () => {
-    // console.log("Trying to LogOut");
+    
     logOut()
       .then(() => {
         toast.success("Logged Out successfully");
@@ -17,6 +18,15 @@ const Navbar = () => {
         console.log(error);
       });
   };
+
+  const handleTheme = () => {
+    setIsChecked(prev => !prev);
+  };
+  useEffect(() => {
+    const theme = isChecked ? "dark" : 'light';
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [isChecked]);
+      
 
   const links = <>
     <div className='flex text-white flex-col lg:flex-row gap-3 text-lg'>
@@ -33,7 +43,7 @@ const Navbar = () => {
   </>
 
   return (
-    <div className='bg-[#F28500] shadow-sm '>
+    <div className='bg-[#0B6623] shadow-sm '>
       <div className="navbar w-11/12 m-auto ">
         <div className="navbar-start">
           <div className="dropdown ">
@@ -50,7 +60,7 @@ const Navbar = () => {
 
           <div className='flex items-center '>
             <img className='w-12 h-12 rounded-xl' src="https://i.ibb.co.com/XZmg5YCJ/pngtree-creative-logo-to-pet-shop-png-image-14658005-1.png" alt="" />
-            <a className="btn btn-ghost text-xl">PawMart</a>
+            <a className="text-white btn btn-ghost italic text-2xl">PawMart</a>
           </div>
         </div>
 
@@ -61,13 +71,42 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end gap-8 lg:gap-2 flex flex-col md:flex-col lg:flex-row">
+          <label className="flex cursor-pointer gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <path
+                d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+            </svg>
+            <input onClick={handleTheme} type="checkbox" value="synthwave" className="toggle theme-controller" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </label>
           <img
             className='w-10 h-10 rounded-4xl'
             src={user ? user.photoURL : userDefaultLogo}
             title={user?.displayName || 'User name'}
             alt=""
           />
-
+          
           {user ? (
             <button
               onClick={handleLogOut}

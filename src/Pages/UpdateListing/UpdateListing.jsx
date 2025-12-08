@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const UpdateListing = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const UpdateListing = () => {
   const navigation = useNavigate();
 
   useEffect(() => {
-      axios.get(`http://localhost:3000/services/${id}`)
+    axios.get(`pawmart-server-beta.vercel.app/services/${id}`)
         .then(res => {
           setService(res.data);
           setLoading(false);
@@ -36,9 +37,9 @@ const UpdateListing = () => {
     const email = form.email.value;
     const formData = { name, category, price, location, description, image, date, email, createdAt: service?.createdAt };
     
-    axios.put(`http://localhost:3000/updateService/${id}`, formData)
+    axios.put(`pawmart-server-beta.vercel.app/updateService/${id}`, formData)
       .then(res => {
-        console.log(res.data);
+         console.log(res.data);
         navigation('/myListings');
       })
     .catch(err=>console.log(err))
@@ -56,7 +57,7 @@ const UpdateListing = () => {
     <>
       <Navbar></Navbar>
     <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow-xl my-4">
-      <h2 className="text-3xl font-bold text-center mb-6">Update Listing</h2>
+        <h2 className="text-3xl font-bold text-[#0B6623] text-center mb-6">Update Listing</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="font-semibold">Product / Pet Name</label>
@@ -145,9 +146,10 @@ const UpdateListing = () => {
             readOnly
           />
         </div>
-        <button type='submit' className="btn bg-[#F28500] w-full mt-4">Update List</button>
+          <button type='submit' className="btn bg-[#0B6623] w-full mt-4">Update List</button>
       </form>
       </div>
+      <Footer></Footer>
     </>
   );
 };

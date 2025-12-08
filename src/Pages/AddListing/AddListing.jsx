@@ -18,8 +18,8 @@ const AddListing = () => {
     const date = form.date.value;
     const email = form.email.value;
     const formData = { name, category, price, location, description, image, date, email };
-    console.log(formData)
-    axios.post('http://localhost:3000/addListing', formData)
+
+    axios.post('pawmart-server-beta.vercel.app/addListing', formData)
       .then(res => {
         console.log(res);
     })
@@ -28,7 +28,7 @@ const AddListing = () => {
   return (
     <>
     <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow-xl my-4">
-      <h2 className="text-3xl font-bold text-center mb-6">Add New Listing</h2>
+        <h2 className="text-3xl text-[#0B6623] font-bold text-center  mb-6">Add New Listing</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="font-semibold">Product / Pet Name</label>
@@ -110,7 +110,7 @@ const AddListing = () => {
             readOnly
           />
         </div>
-        <button type='submit' className="btn bg-[#F28500] w-full mt-4">Add Listing</button>
+          <button type='submit' className="btn bg-[#0B6623] w-full mt-4">Add Listing</button>
       </form>
       </div>
       <Footer></Footer>

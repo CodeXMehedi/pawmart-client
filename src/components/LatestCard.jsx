@@ -24,7 +24,7 @@ const LatestCard = ({ service }) => {
       
         <Link
           to={`/service-details/${service?._id}`}
-          className="bg-[#A55E2A] mt-2 text-white px-4 py-2 rounded hover:bg-[#923f17] transition-colors duration-300">See Details
+          className="bg-[#0B6623] mt-2 text-white px-4 py-2 rounded hover:bg-[#0B6623] transition-colors duration-300">See Details
         </Link>
       </div>
     </div>

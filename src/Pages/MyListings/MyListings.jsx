@@ -11,14 +11,14 @@ const MyListings = () => {
   const { user } = useContext(AuthContext);
   
   useEffect(() => {
-    fetch(`http://localhost:3000/myServices?email=${user?.email}`)
+    fetch(`pawmart-server-beta.vercel.app/myServices?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setMyServices(data))
       .catch(err => console.log(err))
   }, [user?.email])
   
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:3000/delete/${id}`)
+    axios.delete(`pawmart-server-beta.vercel.app/delete/${id}`)
       .then(res => {
         console.log(res.data)
         const filteredData = myServices.filter(service => service?._id != id)
@@ -28,7 +28,8 @@ const MyListings = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className='flex flex-2 lg:flex-row '>
+      <h1 className='text-4xl font-semibold text-center my-8 text-[#0B6623]'>My List</h1>
+      <div className='flex flex-2 lg:flex-row mb-6'>
     <div className="overflow-x-auto mt-8 w-10/12 m-auto">
       <table className="table">
         {/* head */}
@@ -41,7 +42,7 @@ const MyListings = () => {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody >
           {myServices.map((service) => (
             <tr key={service?.id}>
               <td>

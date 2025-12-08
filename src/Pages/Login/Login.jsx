@@ -5,6 +5,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { Eye, EyeClosed } from 'lucide-react';
 import toast from 'react-hot-toast';
 import DocumentMeta from 'react-document-meta';
+import Footer from '../../components/Footer';
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -103,17 +104,18 @@ const Login = () => {
                 state={{ email: loginEmail }}
                 className="link link-hover">Forgot password?</NavLink></div>
               {error && <p className="text-red-800 ">{error}</p>}
-              <button type='submit' className="btn btn-neutral mt-4 text-lg">Login</button>
+              <button type='submit' className="btn bg-[#0B6623] btn-neutral mt-4 text-lg">Login</button>
               <p className='font-semibold text-lg text-center pt-5'>Don't have an account? <NavLink to='/register' className="text-red-500">Register</NavLink></p>
               <p className='text-center'>Or</p>
               {
                 !user &&
-                <button className='btn btn-neutral mt-4 text-sm' onClick={handleGoogleSignIn}>Login With Google</button>
+                <button className='btn bg-[#0B6623] btn-neutral mt-4 text-sm' onClick={handleGoogleSignIn}>Login With Google</button>
               }
             </fieldset>
           </form>
         </div>
       </div>
+      <Footer></Footer>
     </DocumentMeta>
   );
 };
