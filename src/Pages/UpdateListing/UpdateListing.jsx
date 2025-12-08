@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Navbar from '../../components/Navbar';
 
@@ -9,6 +9,7 @@ const UpdateListing = () => {
   const [service, setService] = useState([]);
     const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const navigation = useNavigate();
 
   useEffect(() => {
       axios.get(`http://localhost:3000/services/${id}`)
@@ -38,6 +39,7 @@ const UpdateListing = () => {
     axios.put(`http://localhost:3000/updateService/${id}`, formData)
       .then(res => {
         console.log(res.data);
+        navigation('/myListings');
       })
     .catch(err=>console.log(err))
   }

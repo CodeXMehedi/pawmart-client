@@ -8,6 +8,7 @@ import AddListing from "../Pages/AddListing/AddListing";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import MyListings from "../Pages/MyListings/MyListings";
 import UpdateListing from "../Pages/UpdateListing/UpdateListing";
+import PrivateRoute from "../components/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/addListing',
-        element:<AddListing></AddListing>
+        element: <PrivateRoute><AddListing></AddListing></PrivateRoute>
       },
       {
         path: '/login',
@@ -39,15 +40,17 @@ export const router = createBrowserRouter([
   },
   {
     path: '/service-details/:id',
-    element:<ServiceDetails></ServiceDetails>
+    element: <PrivateRoute>
+      <ServiceDetails></ServiceDetails>
+    </PrivateRoute>
   },
   {
     path: '/myListings',
-    element:<MyListings></MyListings>
+    element: <PrivateRoute><MyListings></MyListings></PrivateRoute>
   },
   {
     path: '/updateListing/:id',
-    element:<UpdateListing></UpdateListing>
+    element: <PrivateRoute><UpdateListing></UpdateListing></PrivateRoute>
   }
   
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Link } from 'react-router';
+import Navbar from '../../components/Navbar';
+import axios from 'axios';
 
 const MyListings = () => {
   const [myServices, setMyServices] = useState([]);
@@ -14,7 +16,17 @@ const MyListings = () => {
       .catch(err => console.log(err))
   }, [user?.email])
   
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:3000/delete/${id}`)
+      .then(res => {
+        console.log(res.data)
+        const filteredData = myServices.filter(service => service?._id != id)
+        setMyServices(filteredData);
+      }).catch(err => console.log(err));
+  }
   return (
+    <>
+      <Navbar></Navbar>
     <div className="overflow-x-auto mt-8  w-10/12 m-auto">
       <table className="table">
         {/* head */}
@@ -52,13 +64,14 @@ const MyListings = () => {
 
               <td >
                 <Link to={`/updateListing/${service?._id }`}> <button className="btn btn-primary btn-xs mr-2">Edit</button></Link>
-                <button className="btn btn-error btn-xs">Delete</button>
+                <button onClick={()=>handleDelete(service?._id)} className="btn btn-error btn-xs">Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+      </div>
+    </>
   );
 };
 
