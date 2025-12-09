@@ -5,24 +5,26 @@ import { Link } from 'react-router';
 import Navbar from '../../components/Navbar';
 import axios from 'axios';
 import Footer from '../../components/Footer';
+import toast from 'react-hot-toast';
 
 const MyListings = () => {
   const [myServices, setMyServices] = useState([]);
   const { user } = useContext(AuthContext);
   
   useEffect(() => {
-    fetch(`pawmart-server-beta.vercel.app/myServices?email=${user?.email}`)
+    fetch(`https://pawmart-server-beta.vercel.app/myServices?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setMyServices(data))
       .catch(err => console.log(err))
   }, [user?.email])
   
   const handleDelete = (id) => {
-    axios.delete(`pawmart-server-beta.vercel.app/delete/${id}`)
+    axios.delete(`https://pawmart-server-beta.vercel.app/delete/${id}`)
       .then(res => {
         console.log(res.data)
         const filteredData = myServices.filter(service => service?._id != id)
         setMyServices(filteredData);
+        toast('Delete successful');
       }).catch(err => console.log(err));
   }
   return (

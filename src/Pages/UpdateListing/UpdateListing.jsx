@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import toast from 'react-hot-toast';
 
 const UpdateListing = () => {
   const { user } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const UpdateListing = () => {
   const navigation = useNavigate();
 
   useEffect(() => {
-    axios.get(`pawmart-server-beta.vercel.app/services/${id}`)
+    axios.get(`https://pawmart-server-beta.vercel.app/services/${id}`)
         .then(res => {
           setService(res.data);
           setLoading(false);
@@ -37,9 +38,10 @@ const UpdateListing = () => {
     const email = form.email.value;
     const formData = { name, category, price, location, description, image, date, email, createdAt: service?.createdAt };
     
-    axios.put(`pawmart-server-beta.vercel.app/updateService/${id}`, formData)
+    axios.put(`https://pawmart-server-beta.vercel.app/updateService/${id}`, formData)
       .then(res => {
-         console.log(res.data);
+        console.log(res.data);
+        toast('updated successfully');
         navigation('/myListings');
       })
     .catch(err=>console.log(err))

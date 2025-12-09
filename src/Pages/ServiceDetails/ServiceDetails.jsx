@@ -12,7 +12,7 @@ const ServiceDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`pawmart-server-beta.vercel.app/services/${id}`)
+    axios.get(`https://pawmart-server-beta.vercel.app/services/${id}`)
       .then(res => {
         setService(res.data);
         setLoading(false);
@@ -56,14 +56,14 @@ const ServiceDetails = () => {
     };
 
 
-    toast("Order placing...");
+    
 
 
    
-    axios.post("pawmart-server-beta.vercel.app/orders", orderData)
+    axios.post("https://pawmart-server-beta.vercel.app/orders", orderData)
       .then(res => {
         console.log(res.data);
-        
+        toast("Order placing...");
       })
       .catch(err => console.log(err));
   };

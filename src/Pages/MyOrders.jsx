@@ -15,7 +15,7 @@ const MyOrders = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    axios.get(`pawmart-server-beta.vercel.app/orders?email=${user?.email}`)
+    axios.get(`https://pawmart-server-beta.vercel.app/orders?email=${user?.email}`)
       .then((res) => {
         setOrders(res.data);
         setLoading(false);

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Tooltip } from "react-tooltip";
 
 const LatestCard = ({ service }) => {
- 
+
   return (
     <div className="bg-white rounded-lg shadow-lg  p-4 hover:shadow-2xl ">
       <img
@@ -10,9 +11,15 @@ const LatestCard = ({ service }) => {
         alt={service?.name}
         className="w-full h-50 object-cover rounded-md mb-4"
       />
-      <h3 className="text-xl font-semibold text-[#A55E2A] mb-2">
+
+      <h3
+        className="text-xl font-semibold text-[#A55E2A] mb-2"
+        data-tooltip-id="latestName"
+        data-tooltip-content={service?.name}
+      >
         {service?.name}
       </h3>
+
       <div className="flex justify-between items-center text-gray-800 font-medium mb-2">
         <div>
           <p>Category: {service?.category}</p>
@@ -20,13 +27,16 @@ const LatestCard = ({ service }) => {
         </div>
         <p>Price: {service?.price} BDT</p>
       </div>
+
       <div className="flex justify-center ">
-      
         <Link
           to={`/service-details/${service?._id}`}
-          className="bg-[#0B6623] mt-2 text-white px-4 py-2 rounded hover:bg-[#0B6623] transition-colors duration-300">See Details
+          className="bg-[#0B6623] mt-2 text-white px-4 py-2 rounded hover:bg-[#0B6623] transition-colors duration-300"
+        >
+          See Details
         </Link>
       </div>
+      <Tooltip id="latestName" />
     </div>
   );
 };

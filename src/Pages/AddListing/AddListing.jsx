@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import axios from 'axios';
 import Footer from '../../components/Footer';
+import toast from 'react-hot-toast';
+
 
 const AddListing = () => {
   const { user } = useContext(AuthContext);
@@ -19,9 +21,10 @@ const AddListing = () => {
     const email = form.email.value;
     const formData = { name, category, price, location, description, image, date, email };
 
-    axios.post('pawmart-server-beta.vercel.app/addListing', formData)
+    axios.post('https://pawmart-server-beta.vercel.app/addListing', formData)
       .then(res => {
         console.log(res);
+        toast('Product add successful')
     })
   }
   
