@@ -14,7 +14,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigateTo = useNavigate();
-  const { user, signIn, setUser, signInWithGoogle } = use(AuthContext);
+  const { user, signInUser, setUser, signInWithGoogle } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,13 +34,14 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     // console.log({ email, password });
-    signIn(email, password)
+    signInUser(email, password)
       .then(() => {
         // const user = result.user;
         // console.log(user);
+        toast.success("Login Successful");
         navigate(`${location.state ? location.state : "/"}`)
         navigateTo("/");
-        toast.success("Register Successfully");
+       
 
       })
       .catch((error) => {
@@ -58,7 +59,7 @@ const Login = () => {
       .then(result => {
         // console.log(result.user);
         setUser(result.user);
-        toast.success("Register Successfully");
+        toast.success("Login Successful");
         navigate("/");
 
       })

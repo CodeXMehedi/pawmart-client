@@ -94,12 +94,12 @@ const ServiceDetails = () => {
   return (
     <>
       <Navbar></Navbar>
-    <div className="flex items-center gap-6 w-9/12 mx-auto mt-10  bg-white shadow-lg rounded-lg p-10">
+    <div className="flex flex-col lg:flex-row items-center gap-6 w-9/12 mx-auto mt-10  bg-white shadow-lg rounded-lg p-10">
        
         <img
           src={service.image}
           alt={service.name}
-          className="max-w-6/12 rounded-lg"
+          className="lg:max-w-6/12 rounded-lg"
         />
       <div className='flex-1'>
           <h1 className="text-3xl font-bold">{service.name}</h1>

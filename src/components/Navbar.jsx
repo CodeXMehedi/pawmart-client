@@ -29,7 +29,7 @@ const Navbar = () => {
       
 
   const links = <>
-    <div className='flex text-white flex-col lg:flex-row gap-3 text-lg'>
+    <div className='flex  flex-col lg:flex-row gap-3 text-lg'>
       <NavLink to='/'>Home</NavLink>
       <NavLink to='/pets&Supplies'>Pets & Supplies</NavLink>
       {
@@ -52,7 +52,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="0"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box w-55 md:w-70 p-2 shadow absolute top-full left-0 z-50 mt-3"
+              className="text-[#0B6623] menu menu-sm dropdown-content bg-base-100 rounded-box w-55 md:w-70 p-2 shadow absolute top-full left-0 z-50 mt-3"
             >
               {links}
             </ul>
@@ -64,7 +64,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="navbar-center hidden lg:flex">
+        <div className="text-white navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {links}
           </ul>

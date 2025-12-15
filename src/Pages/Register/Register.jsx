@@ -54,14 +54,13 @@ const Register = () => {
         .then(() => {
 
           setUser({ ...user, displayName: name, photoURL: photo });
+          toast.success("Register Successful");
           navigate("/");
         })
         .catch((error) => {
           console.log(error);
           setUser(user);
         });
-
-      toast.success("Register Successfully");
 
 
     }).catch((error) => {
@@ -80,9 +79,9 @@ const Register = () => {
       .then(result => {
         // console.log(result.user);
         setUser(result.user);
-
-        navigate("/");
         toast.success("Register Successfully");
+        navigate("/");
+        
 
       })
       .catch(error => {
