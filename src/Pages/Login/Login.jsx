@@ -19,15 +19,16 @@ const Login = () => {
   const navigate = useNavigate();
 
   const meta = {
-    title: "Login | Kids Toys Market",
-    description: "Login to your Kids Toys Market account to access toys, wishlist, and dashboard.",
+    title: "Login | PawMart",
+    description: "PawMart - Find pets, accessories, food, and more. Explore latest listings and adopt your next furry friend.",
     meta: {
       charset: "utf-8",
       name: {
-        keywords: "login, account login, kids toys, toy shop login, user authentication"
+        keywords: "pets, adoption, pet shop, paw mart, pet marketplace, animals"
       }
     }
   };
+
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = e.target;

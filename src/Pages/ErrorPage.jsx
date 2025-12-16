@@ -5,15 +5,16 @@ import DocumentMeta from 'react-document-meta';
 const ErrorPage = () => {
   const navigate = useNavigate();
   const meta = {
-    title: "404 Not Found | Kids Toys Market",
-    description: "The toy page you are looking for does not exist. Please check the link or go back.",
+    title: "404 not found | PawMart",
+    description: "PawMart - Find pets, accessories, food, and more. Explore latest listings and adopt your next furry friend.",
     meta: {
       charset: "utf-8",
       name: {
-        keywords: "404, error page, toy not found, kids toys"
+        keywords: "pets, adoption, pet shop, paw mart, pet marketplace, animals"
       }
     }
   };
+
   return (
 
     <DocumentMeta {...meta}>

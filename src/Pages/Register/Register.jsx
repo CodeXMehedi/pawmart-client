@@ -10,15 +10,16 @@ import DocumentMeta from 'react-document-meta';
 const googleProvider = new GoogleAuthProvider();
 const Register = () => {
   const meta = {
-    title: "Register | Kids Toys Market",
-    description: "Create your account at Kids Toys Market to explore premium toys, manage your wishlist, and shop easily.",
+    title: "Register| PawMart",
+    description: "PawMart - Find pets, accessories, food, and more. Explore latest listings and adopt your next furry friend.",
     meta: {
       charset: "utf-8",
       name: {
-        keywords: "register, create account, signup, user registration, kids toys market"
+        keywords: "pets, adoption, pet shop, paw mart, pet marketplace, animals"
       }
     }
   };
+
 
   const { createUser, setUser, updateUser, signInWithGoogle, user } = use(AuthContext);
 
